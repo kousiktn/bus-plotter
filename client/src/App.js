@@ -12,6 +12,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    this.refreshTime = 3000; // milliseconds
     this.state = {
       settings: {
         dragPan: true,
@@ -73,7 +74,7 @@ class App extends Component {
 
   startTimer () {
     clearInterval(this.timer);
-    this.timer = setInterval(this._refreshBusLocations.bind(this), 5000);
+    this.timer = setInterval(this._refreshBusLocations.bind(this), this.refreshTime);
   }
 
   render() {
